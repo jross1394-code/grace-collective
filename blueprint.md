@@ -1,28 +1,33 @@
-# Project Blueprint: Church Planting Tycoon
+# Church Tycoon: Mega-Church Simulator
 
 ## Overview
-"Church Planting Tycoon" is a management simulation game built with Next.js (App Router). Inspired by Kairosoft games, it features a pixel-art aesthetic and deep management mechanics. Players start as a church planter in a suburban living room and aim to grow their non-denominational congregation into a stadium-filling movement.
+A web-based isometric tycoon game where players manage a growing non-denominational suburban church. The goal is to grow from a small living room gathering to a massive mega-church campus, managing resources, staff, and congregation satisfaction.
 
-## Features
-- **Progression System:** Evolve from Living Room -> School Auditorium -> Movie Theater -> Warehouse -> Stadium.
-- **Resource Management:** Manage Funds, Congregation Size, and "Spirit" (Morale/Influence).
-- **Staffing:** Recruit volunteers and hire pastors (Worship Leader, Youth Pastor, Executive Pastor).
-- **Aesthetic:** Retro pixel-art style UI with vibrant colors and isometric-inspired layouts.
-- **Gameplay Loop:** Hold services, organize outreach events, upgrade facilities, and manage random community events.
-- **Visuals:** Full-screen Isometric tile-based map representing the church layout and service setup.
+## Project Structure & Features
+*   **Framework:** Next.js (App Router)
+*   **Styling:** Tailwind CSS
+*   **State Management:** React Context (`GameContext.tsx`)
+*   **Graphics:** 16-bit style isometric assets rendered programmatically via SVG.
 
-## Plan & Steps
-1.  **Project Restructure:** (Completed)
-2.  **Game Engine Core:** (Completed)
-3.  **UI Construction:** (In Progress)
-    *   *Update:* Refactor `IsoMap` to be the full-screen background.
-    *   *Update:* Create `FloatingMenu` system for Actions and Staff.
-    *   *Update:* Make `Header` a floating HUD.
-4.  **Mechanics Implementation:**
-    *   **Living Room Phase:** Basic mechanics (Invite neighbors, Bible study).
-    *   **Growth Logic:** Thresholds for moving to the next venue.
-    *   **Staffing System:** Unlockable staff slots.
-    *   **Visuals:** Dynamic crowd rendering.
-5.  **Refinement:**
-    *   Add animations and "juice".
-    *   Mobile responsiveness.
+### Current Features
+*   **Game Loop:** Time-based resource generation (money, faith).
+*   **Venues:** Progressive venues (Living Room -> School Auditorium -> Warehouse).
+*   **Isometric View:** `IsoMap` component renders the church layout.
+*   **UI:** HUD, Action Panel, Message Log, Staff Panel.
+*   **Assets:** Basic SVG sprites for chairs, pulpits, speakers, plants, and casual attendees.
+
+## Plan: Enhanced 16-bit Assets & Entity Expansion
+
+### Objective
+Expand the visual fidelity of the game by creating a dedicated asset library (`GameAssets.tsx`) containing "16-bit" style SVG sprites for a wider range of entities and furniture, simulating a pixel-art aesthetic.
+
+### Steps
+1.  **Refactor Assets:** Move SVG rendering logic from `IsoMap.tsx` to a new dedicated component `app/components/ui/GameAssets.tsx`.
+2.  **Implement New Entities:**
+    *   **Staff:** Ushers (w/ badges/lanyards), Tech Team (black clothes, headsets).
+    *   **Band:** Guitarist (w/ instrument), Drummer (w/ kit), Worship Leader.
+3.  **Implement New Furniture/Decor:**
+    *   **Stage Gear:** Drum kit, Monitors, Mic stands.
+    *   **Lobby Items:** Coffee station, Welcome desk.
+    *   **Flooring:** Refined tile patterns.
+4.  **Update Rendering:** Update `IsoMap.tsx` to utilize the new asset library and render the diverse crowd and staff types.
